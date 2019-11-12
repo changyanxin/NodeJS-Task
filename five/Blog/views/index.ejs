@@ -111,7 +111,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
   $("#login").on('click',function(){
-    console.log("index-jquery");
+    // console.log("index-jquery");
     // $.ajax({
     //         type: "post",
     //         url: "http://localhost:3000/list/",
@@ -125,12 +125,26 @@
     //         }
     //     })
     $.post(
-      'http://localhost:3000/list',
+      'http://localhost:3000/check',
       {
         username:$("#username").val(),
         password:$("#pwd").val()
+      },
+      function(data){
+          console.log('111');
+        //   console.log(data);
+        if(data=='right'){
+            console.log("right");
+            window.location = "http://localhost:3000/list/";
+        }else{
+            console.log('error');
+        }
+          
+          
+        //   $.get('http://localhost:3000/list');
       }
     );
+
   });
 
     
